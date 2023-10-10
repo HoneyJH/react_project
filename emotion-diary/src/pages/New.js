@@ -1,8 +1,16 @@
+import { useEffect } from 'react';
+import DiaryEditor from "../components/DiaryEditor";
+
 const New = () =>{
-    return (
+
+  useEffect(()=>{
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정 일기장 - 새 일기`;
+  },[]);
+
+  return (
      <div>
-        <h1>New</h1>
-        <p>이곳은 일기장 작성페이지 입니다.</p>
+       <DiaryEditor />
     </div>
     );
 };

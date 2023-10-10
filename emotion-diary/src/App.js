@@ -39,43 +39,45 @@ const reducer = (state, action) => {
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
-const dummyData = [
-  {
-    id: 1,
-    emotion: 1,
-    content: "오늘의 일기1",
-    date: 1696589348700,
-  },
-  {
-    id: 2,
-    emotion: 2,
-    content: "오늘의 일기2",
-    date: 1696589348701,
-  },
-  {
-    id: 3,
-    emotion: 3,
-    content: "오늘의 일기3",
-    date: 1696589348702,
-  },
-  {
-    id: 4,
-    emotion: 4,
-    content: "오늘의 일기4",
-    date: 1696589348703,
-  },
-  {
-    id: 5,
-    emotion: 5,
-    content: "오늘의 일기5",
-    date: 1696589348704,
-  },
+// const dummyData = [
+//   {
+//     id: 1,
+//     emotion: 1,
+//     content: "오늘의 일기1",
+//     date: 1696589348700,
+//   },
+//   {
+//     id: 2,
+//     emotion: 2,
+//     content: "오늘의 일기2",
+//     date: 1696589348701,
+//   },
+//   {
+//     id: 3,
+//     emotion: 3,
+//     content: "오늘의 일기3",
+//     date: 1696589348702,
+//   },
+//   {
+//     id: 4,
+//     emotion: 4,
+//     content: "오늘의 일기4",
+//     date: 1696589348703,
+//   },
+//   {
+//     id: 5,
+//     emotion: 5,
+//     content: "오늘의 일기5",
+//     date: 1696589348704,
+//   },
  
-];
+// ];
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, dummyData);
-  console.log(new Date().getTime());
+  // const [data, dispatch] = useReducer(reducer, dummyData);
+  // console.log(new Date().getTime());
+  const [data, dispatch] = useReducer(reducer, []);
+
   useEffect(() => {
     const localData = localStorage.getItem('diary');
     if (localData) {
@@ -100,7 +102,7 @@ function App() {
         id: dataId.current,
         date: new Date(date).getTime(),
         content,
-        emotion,
+        emotion
       },
     });
     dataId.current += 1;
@@ -110,7 +112,7 @@ function App() {
   const onRemove = (targetId) => {
     dispatch({
       type: 'REMOVE',
-      targetId,
+      targetId
     });
   };
 
@@ -118,7 +120,7 @@ function App() {
   const onEdit = (targetId, date, content, emotion) => {
     dispatch({
       type: 'EDIT',
-      data: { id: targetId, date: new Date(date).getTime(), content, emotion },
+      data: { id: targetId, date: new Date(date).getTime(), content, emotion }
     });
   };
 
