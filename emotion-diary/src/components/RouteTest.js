@@ -1,17 +1,17 @@
 import {Link} from "react-router-dom";
-
-const RouteTest = () => {
+const RouteTest = () =>{
     return (
         <>
             <Link to={"/"}>Home</Link>
-            <br />
+            <br></br>
             <Link to={"/diary"}>Diary</Link>
-            <br />
+            <br></br>
             <Link to={"/new"}>New</Link>
-            <br />
-            <Link to={"/edit"}>Edit</Link>
-            <br />
+            <br></br>
+            <Link to={"/edit"}>edit</Link>
+            <br></br>
         </>
     );
+
 };
 export default RouteTest;
